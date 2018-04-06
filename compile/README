@@ -1,0 +1,14 @@
+Steps to compile the model. 
+
+1. move to your build directory. This is where you will compile
+   the model.
+2. When in the build directory, use the get_makefile.bash 
+   script to generate the makefile
+   Make sure the script points to the correct source files,
+   mod directory, and optfile
+3. execute : make depend
+4. execute : make
+
+Notes : "make depend" this makes it so you can modify 
+the files in your build directory. Then you simply
+need to run "make" to recompile the model.

@@ -1,0 +1,34 @@
+#!/bin/bash
+# poseidon_compile 
+# master version JAN 1 2009
+# built dp 18 Nov 2008
+# built using pgi cdk 7.2 pgcc pgf77 pgf90 
+# using rocks 5.03
+# using mpich 2
+#
+#  $Header: /u/gcmpack/MITgcm/tools/build_options/linux_amd64_pgf77+mpi_ncar,v 1.1 2005/01/12 22:04:59 ce107 Exp $
+#  $Name:  $
+#
+# Build options for Suse SLES-8.1 Opteron
+# tested on (Linux ln0127en 2.4.21-143-numa #1 SMP Fri Oct 31 00:17:52 UTC 2003 x86_64 unknown) system 20041512
+#
+RSHCOMMAND="ssh -x"
+FC=/share/apps/mpich2/bin/mpif77
+CC=/share/apps/mpich2/bin/mpicc
+LINK=/share/apps/mpich2/bin/mpif77
+DEFINES='-DWORDLENGTH=4 -DALLOW_USE_MPI -DALWAYS_USE_MPI'
+CPP='cpp  -traditional -P'
+NOOPTFLAGS='-O0'
+MAKEDEPEND=/usr/bin/makedepend
+INCLUDES='-I/share/apps/mpich2/include -I/share/apps/netcdf08/include'
+LIBS='-L/share/apps/netcdf08/lib -lnetcdf' 
+if test "x$IEEE" = x ; then
+    #  No need for IEEE-754
+    FFLAGS='-byteswapio -r8 -Mnodclchk -Mextend -Ktrap=fp'
+    FOPTIM='-tp k8-64 -pc=64 -fastsse -O3 -Msmart -Mvect=cachesize:1048576,transform'
+else
+    #  Try to follow IEEE-754
+    FFLAGS='-byteswapio -r8 -Mnodclchk -Mextend -Ktrap=fp'
+    FOPTIM='-tp k8-64 -pc=64 -fastsse -O3 -Msmart -Kieee -Mvect=cachesize:1048576,transform'
+fi
+
