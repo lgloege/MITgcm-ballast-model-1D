@@ -1,0 +1,13 @@
+compile/build/
+compile/source/tools/cyrus-imapd-makedepend/Makefile
+compile/source/tools/cyrus-imapd-makedepend/Makefile.bak
+compile/source/tools/cyrus-imapd-makedepend/config.cache
+compile/source/tools/cyrus-imapd-makedepend/config.log
+compile/source/tools/cyrus-imapd-makedepend/config.status
+compile/source/tools/cyrus-imapd-makedepend/cppsetup.o
+compile/source/tools/cyrus-imapd-makedepend/ifparser.o
+compile/source/tools/cyrus-imapd-makedepend/include.o
+compile/source/tools/cyrus-imapd-makedepend/main.o
+compile/source/tools/cyrus-imapd-makedepend/makedepend
+compile/source/tools/cyrus-imapd-makedepend/parse.o
+compile/source/tools/cyrus-imapd-makedepend/pr.o
