@@ -15,8 +15,9 @@ Then compile the model with `./build_MITgcm.bash`
 # Run model
 The model is currently configured for the NADR province.
 
-Change paths to correct input files in the data files.
+In the data files, change the paths to correct forcing files in `inputs`.
 
-Then use `run_1d_MITgcm_habanero.sh` to runt he model. This currently setup
-to use the Habanero cluseter at Columbia University.
+Then use `run_1d_MITgcm_habanero.sh` to run the model. Make sure you moved the `mitgcmuv` executable
+from the build directory.
+This is currently setup to use the Habanero cluster at Columbia University.
 
