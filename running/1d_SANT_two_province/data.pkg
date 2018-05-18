@@ -1,7 +1,0 @@
-# Packages
- &PACKAGES
- usePTRACERS=.TRUE.
- useGCHEM=.TRUE.,
- useKPP=.TRUE.,
- useMNC=.TRUE.,
- &
