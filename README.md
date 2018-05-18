@@ -4,7 +4,6 @@ Code used in [Gloege et al. 2017](https://agupubs.onlinelibrary.wiley.com/doi/fu
 - `source` = directory with model source code (do not modifity this)
 - `inputs` = the inputs used to force the model in different provinces
 - `code` = modified source code is here
-- `build` = this is where compiled source code will go (it is currently empty)
 - `running` = directory where you run the compiled model
 - `build_MITgcm.bash` = script used to build and compile the model
 
