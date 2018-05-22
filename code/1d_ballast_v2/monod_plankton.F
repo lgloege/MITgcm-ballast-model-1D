@@ -1246,41 +1246,39 @@ C     &                ExportFracP(np)*mortphy(np)*phytomin(np)
 cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
 c POC and PIC for large (np=1) and small (np=2) species
 c
-c Large : 7% of POC exported is routed PIC
+c small : 7% POC routed to PIC remainder is PIC
 c
-c Small : small species are not calcifiers 
+c Large: all is routed to POC
 cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
-c Large phytoplankton (Diatom)
-               if (np.eq.1) then
-C               large phyto  POC
-                 phy1_poc=(1-0.07)*R_PC(np)*ExportFracP(np)*
-     &                     mortphy(np)*phytomin(np)
 
-C               large phyto POC added to total pool
-                 totphy_poc = totphy_poc + phy1_poc
-
-C               large phyto PIC (route 7% of POC to PIC pool)
-                 totphy_pic=totphy_pic + 0.07*R_PC(np)*ExportFracP(np)*
-     &                     mortphy(np)*phytomin(np)
-               endif
-
-c small phytoplankton
-              if (np.eq.2) then
-c               small phyto POC
-                 phy2_poc=R_PC(np)*ExportFracP(np)*
+c large phytoplankton (diatoms)
+              if (np.eq.1) then
+c               large POC
+                 phy1_poc=R_PC(np)*ExportFracP(np)*
      &                    mortphy(np)*phytomin(np)
 
-c               small phyto POC added to total 
-                totphy_poc = totphy_poc + phy2_poc
+c               large POC added to total pool
+                  totphy_poc = totphy_poc + phy1_poc
               endif
+
+c small phytoplankton
+               if (np.eq.2) then
+C               small POC
+                  phy2_poc=(1-0.07)*R_PC(np)*ExportFracP(np)*
+     &                     mortphy(np)*phytomin(np)
+
+C               small POC added to total pool
+                  totphy_poc = totphy_poc + phy2_poc
+
+C               small PIC (route 7% to PIC pool)
+                  totphy_pic=totphy_pic + 0.07*phy2_poc
+               endif
 c ====================================================================
 
-c The remainder that is not POC or PIC is routed to DOC
                totphy_doc=totphy_doc+ R_PC(np)*
      &               (1. _d 0-ExportFracP(np))*mortphy(np)*phytomin(np)
 
 C Commented out by Luke (this is the original code)
-C we now assume 7% of large phto POC 
 C               totphy_pic=totphy_pic+ R_PC(np)*R_PICPOC(np)*
 C     &                mortphy(np)*phytomin(np)
 #endif
@@ -1853,7 +1851,7 @@ c ========================================================================
 
 c-----------------------------------------------------------------------
 c production tendencies
-c we let 7% of large phyto. POC route to PIC
+c (7% of small phtyo. produce PIC, set in generatate_phyto)
 c-----------------------------------------------------------------------
             dPOCproddt  = totphy_poc  + totzoo_poc    ! production POC
             dPICproddt  = totphy_pic  + totzoo_pic    ! production PIC

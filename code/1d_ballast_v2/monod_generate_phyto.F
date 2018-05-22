@@ -143,8 +143,7 @@ c           diacoc(np) = 0.0 _d 0
 c         endif
 c        else
 c changed by luke gloege
-c want 7% large phytoplankton to produce PIC
-c this is incorrect
+c want 7% small phytoplankton to produce PIC
 c          RandNo = darwin_random(myThid)
 c          if(RandNo .le. 0.07 _d 0)then
 c            diacoc(np) = 2.0 _d 0
@@ -153,9 +152,9 @@ c            diacoc(np) = 0.0 _d 0
 c          endif
 c        endif
 #ifdef TWO_SPECIES_SETUP
-c Luke changed this
-c large phyto (np=1) use silica (diacoc=1)
-c small phyto (np=2) do not use silicate (diacoc=0) 
+c want large phytoplankton to use silica
+c this was originally 0.0
+c bug in the code???
         if (physize(np).eq.1.0 _d 0) then
             diacoc(np) = 1.0 _d 0
         else 
