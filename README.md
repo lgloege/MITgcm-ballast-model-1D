@@ -1,7 +1,7 @@
 <h1 align="center"> MITgcm-ballast-model-1D</h1>
 
 <p align="center">
-   <img height="400" src="https://github.com/lgloege/MITgcm-Michigan-Phosphorus/blob/master/results/figures/bcp_schematic.jpg">
+   <img height="400" src="https://github.com/lgloege/MITgcm-ballast-model-1D/blob/master/results/figures/bcp_schematic.jpg">
 </p>
 
 # Introduction
