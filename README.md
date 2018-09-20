@@ -1,3 +1,9 @@
+<h1 align="center"> MITgcm-ballast-model-1D</h1>
+
+<p align="center">
+   <img height="400" src="https://github.com/lgloege/MITgcm-Michigan-Phosphorus/blob/master/results/figures/bcp_schematic.jpg">
+</p>
+
 # Introduction
 Code used in [Gloege et al. 2017](https://agupubs.onlinelibrary.wiley.com/doi/full/10.1002/2016GB005535)
 
